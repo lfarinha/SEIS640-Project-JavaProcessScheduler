@@ -7,8 +7,6 @@ public class RoundRobin extends Strategy {
 	  
 	  int count = 0;
 	  int maxBurstTime = 0;
-
-	  int RequestQueue[] = new int[20];
 	  int temp[][] = new int[20][20];
 	  
 
@@ -26,27 +24,7 @@ public class RoundRobin extends Strategy {
 
 			System.out.println("Burst Time - quantum");
 			System.out.println("----------------------");
-//			while(true)
-//			{
-//			for(Job job:jobList)
-//			{
-//					if(quantum < job.getBurstTime())
-//					{
-//						RequestQueue[0] = job.getBurstTime() - quantum;
-//						
-//						count++;
-//					}else
-//					{
-//						RequestQueue[0] = job.getBurstTime();
-//
-//						count++;
-//					}
-//					
-//					
-//					System.out.println("  "+job.getProcessId()+"   |    "+RequestQueue[0]+"  ");
-//					System.out.println("----------------------");
-//				}
-//			}
+
 			
 			for(Job job:jobList)
 			{
@@ -81,9 +59,7 @@ public class RoundRobin extends Strategy {
 			}
 			
 
-	}//EOF
+	}
 			
-				
-	
 	
 	}//EOF
