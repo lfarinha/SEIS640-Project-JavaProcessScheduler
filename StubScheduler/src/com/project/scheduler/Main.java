@@ -21,13 +21,13 @@ public class Main {
         
         String filename ;
         String allocationStrategy;
-        int quantum=20;
+        int quantum=2;
         
         /*filename = args[0];
         allocationStrategy = args[1];*/
         
-        filename = "data.csv";
-        allocationStrategy = "FCFS";
+        filename = "example_1.csv";
+        allocationStrategy = "RR";
         
         
         //filename = sc.nextLine();
@@ -44,17 +44,17 @@ public class Main {
             
             br = new BufferedReader(new FileReader("C://"+filename));
             //System.out.println("processId  arrivalTime  cpuTime");
-            
+            br.readLine();
             List<Job> jobList = new ArrayList<Job>();
             while ((sCurrentLine = br.readLine()) != null) {
                 
                 String a[] = sCurrentLine.split(",");
                 int processId = new Integer(a[0]);
                 int arrivalTime = new Integer(a[1]);
-                int cpuTime = new Integer(a[2]);
+                int burstTime = new Integer(a[2]);
                 int priority = new Integer(a[3]);
                 
-                Job job = new Job(processId,arrivalTime,cpuTime,priority);
+                Job job = new Job(processId,arrivalTime,burstTime,priority);
                 
                 jobList.add(job);
                 
@@ -66,7 +66,12 @@ public class Main {
                 FCFS firstComeFirstServed = new FCFS(jobList);
                 firstComeFirstServed.run(jobList);
                 
-            	}
+            	}else if("RR".equalsIgnoreCase(allocationStrategy)){
+                    
+                    RoundRobin roundRobin = new RoundRobin(jobList);
+                    roundRobin.run(jobList,quantum);
+                    
+                }
             } catch (IOException e) {
             e.printStackTrace();
             } finally {
@@ -83,15 +88,7 @@ public class Main {
                 // this will be called when a job is finished.
             }
         };
-        
-        
-        /*// example job addition:
-        ArrayList jobs = new ArrayList();
-        jobs.add(new Job(1, 0, 2, callback));
-        jobs.add(new Job(2, 1, 3, callback));
-        FirstComeFirstServed fcfs = new FirstComeFirstServed(jobs);
-        fcfs.run();
-        */
+       
 	}
 
 }

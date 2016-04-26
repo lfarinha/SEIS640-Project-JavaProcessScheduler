@@ -3,7 +3,7 @@ package com.project.scheduler;
 import java.util.List;
 
 public class FCFS extends Strategy{
-	  int temp;
+	    int temp;
 	    int proceessArrivalTime;
 	    int waitingTime;
 	    double avgWaitingTime;
@@ -20,9 +20,9 @@ public class FCFS extends Strategy{
 	    
 	    public void run(List<Job> jobList) {
 	        int count = 0;
-	        System.out.println("============================================ ");
-	        System.out.println("Process ID | Turnaround time | Waiting time | Priority");
-	        System.out.println("============================================ ");
+	        System.out.println("==========================================================");
+	        System.out.println("| Process ID | Turnaround time | Waiting time | Priority |");
+	        System.out.println("==========================================================");
 	        for(Job job:jobList){
 	            if(count==0){
 	                job.processArrivalTime = job.getArrivalTime();
@@ -39,14 +39,14 @@ public class FCFS extends Strategy{
 	            
 	            avgWaitingTime =  avgWaitingTime+job.waitingTime;
 	            avgTurnAroundTime = avgTurnAroundTime+job.turnAroundTime;
-	            System.out.println("   "+job.getProcessId()+"  | "+"   "+job.turnAroundTime+"  | "+"   "+job.waitingTime+" | " + "  " +job.getPriority());
-	            System.out.println("----------------------------------------");
+	            System.out.println("      "+job.getProcessId()+"      | "+"      "+job.turnAroundTime+"      | "+"      "+job.waitingTime+"       | " + "      " +job.getPriority());
+	            System.out.println("----------------------------------------------------------");
 	        }
-	        System.out.println("===============================================");
+	        System.out.println("==========================================================");
 	        System.out.println("Avg waiting time:"+avgWaitingTime/jobList.size());
-	        System.out.println("===============================================");
+	        System.out.println("==========================================================");
 	        System.out.println("Avg turn around time:"+avgTurnAroundTime/jobList.size());
-	        System.out.println("===============================================");
+	        System.out.println("==========================================================");
 	        
 	    }
 	 

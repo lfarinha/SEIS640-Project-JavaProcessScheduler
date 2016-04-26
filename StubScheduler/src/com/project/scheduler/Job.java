@@ -1,7 +1,7 @@
 package com.project.scheduler;
 
 public class Job {
-	 private int id, submitTime, CPUTime, CPUTimeLeft, priority;
+	 	private int id, submitTime, CPUTime, CPUTimeLeft, priority;
 	    
 	    private int startTime = 0, endTime = 0;
 	    
@@ -12,23 +12,23 @@ public class Job {
 	    public int turnAroundTime;
 	    private JobFinishEvent evt;
 	    
-	    private int arrivalTime,cpuTime,processId;
+	    private int arrivalTime,burstTime,processId;
 	    
-	    public Job(int id, int submitTime, int CPUTime, int priority, JobFinishEvent evt) {
+	    public Job(int id, int submitTime, int burstTime, int priority, JobFinishEvent evt) {
 	        super();
 	        this.id = id;
 	        this.submitTime = submitTime;
-	        this.CPUTime = CPUTime;
-	        this.CPUTimeLeft = CPUTime;
+	        this.burstTime = burstTime;
+	        this.CPUTimeLeft = burstTime;
 	        this.priority = priority;//new
 	        this.evt = evt;
 	    }
 	    
-	    public Job(int processId, int arrivalTime, int cpuTime, int priority) {
+	    public Job(int processId, int arrivalTime, int burstTime, int priority) {
 	        
 	        this.processId = processId;
 	        this.arrivalTime = arrivalTime;
-	        this.cpuTime = cpuTime;
+	        this.burstTime = burstTime;
 	        this.priority = priority;//new
 	    }
 	    
@@ -61,12 +61,12 @@ public class Job {
 	        this.submitTime = submitTime;
 	    }
 	    
-	    public int getCPUTime() {
-	        return CPUTime;
+	    public int getBurstTime() {
+	        return burstTime;
 	    }
 	    
-	    public void setCPUTime(int cPUTime) {
-	        CPUTime = cPUTime;
+	    public void setBurstTime(int burstTime) {
+	    	this.burstTime = burstTime;
 	    }
 	    
 	    public int getPriority() /* new */
@@ -112,11 +112,11 @@ public class Job {
 	    }
 	    
 	    public int getCpuTime() {
-	        return cpuTime;
+	        return burstTime;
 	    }
 	    
 	    public void setCpuTime(int cpuTime) {
-	        this.cpuTime = cpuTime;
+	        this.burstTime = cpuTime;
 	    }
 	    
 	    public int getProcessId() {
