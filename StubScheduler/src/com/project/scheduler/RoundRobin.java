@@ -4,16 +4,12 @@ import java.util.List;
 
 public class RoundRobin extends Strategy {
 	
-	  
-	  int count = 0;
-	  int processCount;
-	  int flag;
-	  int process[][];
-	  int temp[][];
-	  int notComplete[][];
-	  int complete[][];
-	  
+	//2 dimensional arrays
+	  private int process[][], temp[][], notComplete[][], complete[][];
 
+	//int variables
+	  private int processCount, flag, count = 0, avgWtTime=0, avgTrndTm=0;
+	 
 	  public RoundRobin(List<Job> jobs) {
 		super(jobs);
 	}
@@ -27,10 +23,10 @@ public class RoundRobin extends Strategy {
 	{
 			this.processCount = processCount;
 			
-			process = new int[processCount][processCount];
-			temp = new int[processCount][processCount];
-			notComplete = new int[processCount][processCount];
-			complete = new int[processCount][processCount];
+			process = new int[processCount][3];
+			temp = new int[processCount][3];
+			notComplete = new int[processCount][3];
+			complete = new int[processCount][3];
 			
 			for(Job job:jobList)
 			{				
@@ -89,19 +85,25 @@ public class RoundRobin extends Strategy {
 					}
 				}
 			}while(flag==1);
-			for(int i=0; i<temp.length; i++)
+			for(int i=0; i<process.length; i++)
 			{
-				complete[i][2] = notComplete[i][2] + temp[i][2];
+				complete[i][2] += notComplete[i][2] + process[i][2];;
 			}
 	}
 	
 	public void print()
 	{
-			System.out.println("\nProcess ID\tBurstTime\tWaitingTime\tTurnAround");
+			System.out.println("\nProcess ID\tArrivalTime\tBurstTime\tWaitingTime\tTurnAround");
 			for(int i=0; i<process.length; i++)
 			{
-				System.out.println("Process "+process[i][0]+"\t"+process[i][2]+"\t\t"+notComplete[i][2]+"\t\t"+complete[i][2]);
+				System.out.println("Process "+process[i][0]+"\t"+process[i][1]+"\t\t"+process[i][2]+"\t\t"+notComplete[i][2]+"\t\t"+complete[i][2]);
+				this.avgWtTime+=notComplete[i][2];
+				this.avgTrndTm+=complete[i][2];
 			}
+			System.out.println("=============================================");
+			System.out.println("Average Waiting Time: " + (this.avgWtTime/process.length));
+			System.out.println("Average Turnaround Time: " + (this.avgTrndTm/process.length));
+			System.out.println("=============================================");
 	}
 	
 	}//EOF

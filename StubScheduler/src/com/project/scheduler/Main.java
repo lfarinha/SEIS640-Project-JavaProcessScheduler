@@ -10,10 +10,7 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-		 // Process command line arguments
-        // read the file
-        
-        
+
         Scanner sc = new Scanner(System.in);
         Scanner sc1 = new Scanner(System.in);
         Scanner sc2 = new Scanner(System.in);
@@ -21,17 +18,11 @@ public class Main {
         
         String filename ;
         String allocationStrategy;
-        int quantum=2;
+        int quantum=4;
        int processCount=0;
         
-        /*filename = args[0];
-        allocationStrategy = args[1];*/
-        
-        filename = "example_1.csv";
+        filename = "example_2.csv";
         allocationStrategy = "RR";
-        
-        
-        //filename = sc.nextLine();
         
         if(args.length==3){
             quantum = new Integer(args[2]);
