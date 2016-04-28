@@ -22,6 +22,7 @@ public class Main {
         String filename ;
         String allocationStrategy;
         int quantum=2;
+       int processCount=0;
         
         /*filename = args[0];
         allocationStrategy = args[1];*/
@@ -58,7 +59,7 @@ public class Main {
                 
                 jobList.add(job);
                 
-                //System.out.println(processId+" "+ arrivalTime+" " + cpuTime);
+                processCount++;
             }
             
             if("FCFS".equalsIgnoreCase(allocationStrategy)){
@@ -69,7 +70,8 @@ public class Main {
             	}else if("RR".equalsIgnoreCase(allocationStrategy)){
                     
                     RoundRobin roundRobin = new RoundRobin(jobList);
-                    roundRobin.run(jobList,quantum);
+                    roundRobin.run(jobList,quantum, processCount);
+                    roundRobin.print();
                     
                 }
             } catch (IOException e) {
