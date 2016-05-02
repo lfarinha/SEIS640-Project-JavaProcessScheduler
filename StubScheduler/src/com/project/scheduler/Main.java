@@ -22,7 +22,7 @@ public class Main {
        int processCount=0;
         
         filename = "example_2.csv";
-        allocationStrategy = "RR";
+        allocationStrategy = "SJF";
         
         if(args.length==3){
             quantum = new Integer(args[2]);
@@ -58,11 +58,11 @@ public class Main {
                 FCFS firstComeFirstServed = new FCFS(jobList);
                 firstComeFirstServed.run(jobList);
                 
-            	}else if("RR".equalsIgnoreCase(allocationStrategy)){
+            	}else if("SJF".equalsIgnoreCase(allocationStrategy)){
                     
-                    RoundRobin roundRobin = new RoundRobin(jobList);
-                    roundRobin.run(jobList,quantum, processCount);
-                    roundRobin.print();
+                    SJF sjf = new SJF(jobList);
+                    sjf.run(jobList,quantum, processCount);
+                    //sjf.print();
                     
                 }
             } catch (IOException e) {
