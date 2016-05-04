@@ -21,7 +21,7 @@ public class Main {
         int quantum=4;
        int processCount=0;
         
-        filename = "example_2.csv";
+        filename = "example_3.csv";
         allocationStrategy = "SJF";
         
         if(args.length==3){
@@ -62,7 +62,7 @@ public class Main {
                     
                     SJF sjf = new SJF(jobList);
                     sjf.run(jobList,quantum, processCount);
-                    //sjf.print();
+                    sjf.print();
                     
                 }
             } catch (IOException e) {
