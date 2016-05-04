@@ -11,22 +11,19 @@ public class Main {
 
 	public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-        Scanner sc1 = new Scanner(System.in);
-        Scanner sc2 = new Scanner(System.in);
-        
-        
         String filename ;
         String allocationStrategy;
-        int quantum=4;
-       int processCount=0;
+        int processCount=0;
         
-        filename = "example_3.csv";
-        allocationStrategy = "SJF";
+        Scanner scan = new Scanner(System.in);
         
-        if(args.length==3){
-            quantum = new Integer(args[2]);
-        }
+        System.out.println("Enter the training data file name: ");
+        String path =  scan.next();
+        
+
+        filename = path;
+        allocationStrategy = "FCFS";
+        
         
         BufferedReader br = null;
         
@@ -56,15 +53,11 @@ public class Main {
             if("FCFS".equalsIgnoreCase(allocationStrategy)){
                 
                 FCFS firstComeFirstServed = new FCFS(jobList);
-                firstComeFirstServed.run(jobList);
-                
-            	}else if("SJF".equalsIgnoreCase(allocationStrategy)){
-                    
-                    SJF sjf = new SJF(jobList);
-                    sjf.run(jobList,quantum, processCount);
-                    sjf.print();
-                    
-                }
+                firstComeFirstServed.run(jobList, processCount);
+                firstComeFirstServed.print();
+            	}
+            
+            
             } catch (IOException e) {
             e.printStackTrace();
             } finally {
@@ -81,7 +74,7 @@ public class Main {
                 // this will be called when a job is finished.
             }
         };
-       
-	}
+        }
+	
 
 }
