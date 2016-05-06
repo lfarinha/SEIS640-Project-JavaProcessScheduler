@@ -1,0 +1,6 @@
+IProcess,Arrival,Burst,Priority
+1,0,20,2
+2,3,10,3
+3,5,25,1
+4,15,15,5
+5,17,5,4

@@ -35,7 +35,7 @@ public class Main {
             
             String sCurrentLine;
             
-            br = new BufferedReader(new FileReader("C://"+filename));
+            br = new BufferedReader(new FileReader("../"+filename));
             //System.out.println("processId  arrivalTime  cpuTime");
             br.readLine();
             List<Job> jobList = new ArrayList<Job>();
