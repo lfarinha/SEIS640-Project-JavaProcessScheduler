@@ -1,6 +1,11 @@
 package com.project.scheduler;
 
+import java.text.DecimalFormat;
 import java.util.List;
+
+/*
+ *  THIS CODE IS PROPERTY OF LEONARDO FARINHA & ROHAN DAYANANDA
+ */
 
 public class FCFS extends Strategy {
 	
@@ -111,6 +116,7 @@ public class FCFS extends Strategy {
 		
 		double processCount = this.process.length;
 		throughput = (double) ((processCount/cpuTime)*1000.0);
+		throughput = Double.parseDouble(new DecimalFormat("##.##").format(throughput));
 				
 		System.out.println("\nTotal Run Time: "+this.cpuTime);
 		System.out.println("Average Waiting Time: " +(this.totalWtTime/process.length));

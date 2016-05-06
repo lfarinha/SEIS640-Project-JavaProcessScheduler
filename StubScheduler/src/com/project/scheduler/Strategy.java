@@ -1,5 +1,7 @@
 package com.project.scheduler;
-
+/*
+ *  THIS CODE IS PROPERTY OF http://javahungry.blogspot.com/2013/09/round-robin-scheduling-algorithm-with-example-java-program-code.html
+ */
 import java.util.ArrayList;
 import java.util.List;
 

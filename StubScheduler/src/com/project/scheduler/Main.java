@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/*
+ *  THIS CODE IS PROPERTY OF http://javahungry.blogspot.com/2013/09/round-robin-scheduling-algorithm-with-example-java-program-code.html
+ */
+
 public class Main {
 
 	public static void main(String[] args) {
