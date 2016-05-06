@@ -19,7 +19,8 @@ public class Main {
         String allocationStrategy;
         int processCount=0;
         
-        Scanner scan = new Scanner(System.in);
+        @SuppressWarnings("resource")
+		Scanner scan = new Scanner(System.in);
         
         System.out.println("Enter the training data file name: ");
         String path =  scan.next();
@@ -35,7 +36,7 @@ public class Main {
             
             String sCurrentLine;
             
-            br = new BufferedReader(new FileReader("../"+filename));
+            br = new BufferedReader(new FileReader("TestData/"+filename));
             //System.out.println("processId  arrivalTime  cpuTime");
             br.readLine();
             List<Job> jobList = new ArrayList<Job>();
@@ -72,7 +73,8 @@ public class Main {
             }
         }
         
-        JobFinishEvent callback = new JobFinishEvent() {
+        @SuppressWarnings("unused")
+		JobFinishEvent callback = new JobFinishEvent() {
             @Override
             public void onFinish(Job j) {
                 // this will be called when a job is finished.
